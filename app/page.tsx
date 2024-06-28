@@ -1,7 +1,8 @@
-"use client"
+"use client";
 
 import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
+import Image from 'next/image'; // Import Next.js Image component
 
 // Define the type for the timeLeft object
 interface TimeLeft {
@@ -52,7 +53,13 @@ export default function Component() {
   return (
     <div className="flex flex-col min-h-[100dvh]">
       <section className="relative w-full h-[60vh] overflow-hidden">
-        <img src="/hero.jpg" alt="Party Event" className="w-full h-full object-cover object-center" />
+        <Image 
+          src="/hero.jpg" 
+          alt="Party Event" 
+          layout="fill" 
+          objectFit="cover" 
+          objectPosition="center" 
+        />
         <div className="absolute inset-0 bg-gradient-to-b from-transparent to-black/80 flex flex-col justify-end p-8 md:p-12 lg:p-16">
           <div className="space-y-2">
             <div className="inline-block rounded-lg bg-primary px-3 py-1 text-sm text-primary-foreground">
@@ -62,7 +69,7 @@ export default function Component() {
               Graduation Celebration
             </h1>
             <p className="max-w-[600px] text-white md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
-              Join us for a night of music, dancing, games and unforgettable memories as we celebrate the graduation in style.
+              Join us for a night of music, dancing, games, and unforgettable memories as we celebrate the graduation in style.
             </p>
           </div>
         </div>
@@ -161,24 +168,24 @@ export default function Component() {
             </p>
           </div>
           <div className="grid grid-cols-2 gap-6 sm:grid-cols-2 lg:grid-cols-3">
-            <img
+            <Image
               src="/dashen.png"
-              width="200"
-              height="100"
+              width={200}
+              height={100}
               alt="Sponsor Logo"
               className="aspect-[2/1] overflow-hidden rounded-lg object-contain object-center"
             />
-            <img
+            <Image
               src="/dashen.png"
-              width="200"
-              height="100"
+              width={200}
+              height={100}
               alt="Sponsor Logo"
               className="aspect-[2/1] overflow-hidden rounded-lg object-contain object-center"
             />
-            <img
+            <Image
               src="/dashen.png"
-              width="200"
-              height="100"
+              width={200}
+              height={100}
               alt="Sponsor Logo"
               className="aspect-[2/1] overflow-hidden rounded-lg object-contain object-center"
             />
