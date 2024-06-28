@@ -275,7 +275,7 @@ function DollarSignIcon(props: any) {
 }
 
 function MapPinIcon(props: any) {
-  return (
+  return ( 
     <svg
       {...props}
       xmlns="http://www.w3.org/2000/svg"
