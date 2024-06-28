@@ -2,7 +2,7 @@
 
 import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
-import Image from 'next/image'; // Import Next.js Image component
+import Image from 'next/image';
 
 // Define the type for the timeLeft object
 interface TimeLeft {
@@ -40,15 +40,32 @@ const calculateTimeLeft = (): TimeLeft => {
 };
 
 export default function Component() {
-  const [timeLeft, setTimeLeft] = useState<TimeLeft>(calculateTimeLeft());
+  // Initial state with default values to prevent mismatches
+  const [timeLeft, setTimeLeft] = useState<TimeLeft>({
+    days: 0,
+    hours: 0,
+    minutes: 0,
+    seconds: 0,
+  });
+
+  // State to check if the component is hydrated
+  const [hydrated, setHydrated] = useState(false);
 
   useEffect(() => {
+    // Set the hydrated state to true once the component mounts
+    setHydrated(true);
+
     const timer = setInterval(() => {
       setTimeLeft(calculateTimeLeft());
     }, 1000);
 
     return () => clearInterval(timer);
   }, []);
+
+  // Only render the timer if hydrated to avoid hydration mismatches
+  if (!hydrated) {
+    return <div>Loading...</div>; // Placeholder while waiting for hydration
+  }
 
   return (
     <div className="flex flex-col min-h-[100dvh]">
@@ -158,16 +175,15 @@ export default function Component() {
       </section>
       <section className="w-full py-12 md:py-24 lg:py-32 bg-muted">
         <div className="container grid items-center justify-center gap-4 px-4 text-center md:px-6">
-          <div className="space-y-3">
-            <div className="inline-block rounded-lg bg-primary px-3 py-1 text-sm text-primary-foreground">
-              Our Sponsors
-            </div>
-            <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">Thank You to Our Sponsors</h2>
-            <p className="mx-auto max-w-[600px] text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
-              We couldn't have made this event possible without the generous support of our sponsors.
-            </p>
-          </div>
-          <div className="grid grid-cols-2 gap-6 sm:grid-cols-2 lg:grid-cols-3">
+          <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">Meet Our Sponsors</h2>
+          <div className="grid grid-cols-2 gap-6 lg:grid-cols-4">
+            <Image
+              src="/dashen.png"
+              width={200}
+              height={100}
+              alt="Sponsor Logo"
+              className="aspect-[2/1] overflow-hidden rounded-lg object-contain object-center"
+            />
             <Image
               src="/dashen.png"
               width={200}
