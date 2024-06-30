@@ -1,0 +1,8 @@
+{
+    "extends": "next",
+    "rules": {
+      "react/react-in-jsx-scope": "off"
+      // Add more rules to disable if necessary
+    }
+  }
+  
