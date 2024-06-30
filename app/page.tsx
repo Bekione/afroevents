@@ -158,16 +158,15 @@ export default function Component() {
         </section>
         <section className="w-full py-12 md:py-24 lg:py-32">
           <div className="container grid items-center gap-6 px-4 md:px-6 lg:grid-cols-5 lg:gap-12">
-            {/* Date */}
+
             <div className="flex items-center gap-4">
               <CalendarIcon className="h-6 w-6 text-primary" />
               <div>
                 <p className="text-lg font-medium">Date</p>
-                <p className="text-muted-foreground">July 3, 2024</p>
+                <p className="text-muted-foreground">July 3, 2024&apos;</p>
               </div>
             </div>
 
-            {/* Time */}
             <div className="flex items-center gap-4">
               <ClockIcon className="h-6 w-6 text-primary" />
               <div>
@@ -176,7 +175,6 @@ export default function Component() {
               </div>
             </div>
 
-            {/* Location */}
             <div className="flex items-center gap-4">
               <MapPinIcon className="h-6 w-6 text-primary" />
               <div>
@@ -196,7 +194,6 @@ export default function Component() {
               </div>
             </div>
 
-            {/* Contact */}
             <div className="flex items-center gap-4">
               <PhoneIcon className="h-6 w-6 text-primary" />
               <div>
